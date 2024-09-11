@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f6f6f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.hed{
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+}
+.hed2{
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 200;
+    font-style: small;
+    font-size: 14px;
+    text-align: center;
+}
+.container1 {
+    width: 500px;
+    height: auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.simple-btn {
+    padding: 10px 20px;
+    background-color:black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.simple-btn:hover {
+    background-color: #1e2225;
+}
+
+
+.input-field {
+    width: 100%;
+    padding: 10px 0;
+    margin: 20px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 2px solid #999;
+    outline: none;
+    background: transparent;
+}
+
+.submit-btn {
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: black;
+    border: 0;
+    border-radius: 5px;
+    color: white;
+}
+
+.check-box {
+    margin: 10px 10px 0 0;
+}
+
+button:focus {
+    outline: none;
+}
+

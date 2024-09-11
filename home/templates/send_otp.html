@@ -1,0 +1,39 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container1">
+        <h1 class="hed">Winkel</h1>
+        <div class="form-box">
+        <form id="Email" class="input-group" method="post">
+        {% csrf_token %}
+        <!-- <label for="email">Email:</label>  -->
+        <input type="email" name="email" class="input-field" placeholder="Email" required>
+        <button type="submit" class="submit-btn"> <a href="/home"></a>Send OTP</button>
+        {% if error %}
+            <p>{{ error }}</p>
+        {% endif %}
+    </form>
+
+    <!-- <h2>Verify OTP</h2> -->
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="otp" id="otp-field" class="input-field" placeholder="OTP" required>
+        <button type="submit" class="submit-btn">Verify OTP</button>
+        {% if error %}
+            <p>{{ error }}</p>
+        {% endif %}
+    </form> <br>
+    <p style="text-align:center;" class="hed2">Already have an account? <a href="/login" style="color:rgb(0, 119, 255);text-decoration:none;">Sign In</a></p>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+{% load widget_tweaks %}
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}">
+  <link rel="stylesheet" href="{% static 'css/templatemo-hexashop.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl-carousel.css' %}">
+  <link rel="stylesheet" href="{% static 'css/lightbox.css' %}">
+  <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/staff.css' %}">
+  <style>
+    .show{
+      display: block;
+    }
+  </style>
+   
+  <header  class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <img src="{% static 'images/logo.png' %} ">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li class="scroll-to-section"><a href="/home" class="active">Home</a></li>
+                        <li class="scroll-to-section"><a href="/about">About US</a></li>
+                        
+                        <li class="submenu">
+                            <a href="javascript:;">Categories</a>
+                            <ul>
+                                <li><a href="/full">All Product</a></li>
+                                <li><a href="/full">Men's</a></li>
+                                <li><a href="/full">Women</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu">
+                            <a href="javascript:;">Features</a>
+                            <ul>
+                              <li><a href="/cart">View Cart</a></li>
+                              <li><a href="/wishlist">View Wishlist</a></li>
+                              {% if user.is_authenticated %}
+                              <li><a href="/logout">Logout</a></li>
+                          {% else %}
+                              <li><a href="/">Login/Signup</a></li>
+                          {% endif %}
+                              {% if user.username == 'admin' %}
+                              <li><a href="/staff">Staff</a></li>
+                              {% endif %}
+                          </ul>
+                        </li>
+                    </ul>        
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+</head>
+<body>
+  <main>
+    <div class="sub">
+      <a href="/add">Add product</a>
+    </div>
+    <div class="sub">
+      <a href="/editproduct">Edit product</a>
+    </div>
+    <div class="sub">
+      <a href="/deleteproduct">Delete product</a>
+    </div>
+    <div class="sub">
+      <a href="/add_categories">Add Categories</a>
+    </div>
+    <div class="sub">
+      <a href="/deletecategory">Delete Categories</a>
+    </div>
+    <div class="sub">
+
+    </div>
+    <div class="sub"><a href="/full">Full Product</a></div>
+    <div class="sub"></div>
+    <div class="sub"></div>
+    <div class="sub"></div>
+  
+  </main>
+  <!-- <button class="btn btn-info arr" onclick="history.back()"><i class="fa-solid fa-arrow-left"></i></button> -->
+
+
+  <div class="for {{open}}">
+    <header>Product Form</header>
+    <form method="post" enctype="multipart/form-data" >
+      {% csrf_token %}
+      <label for="Name">Product Name:</label>
+      {% render_field form.name placeholder="Product Name" class='form-control f ' id="name" %} 
+      <label for="details">Product details:</label>
+      {% render_field  form.details placeholder="Product details" class='form-control details ' id="details" %} 
+      <label for="Price">Product Price:</label>
+      {% render_field form.name placeholder="Product Price" class='form-control f ' id="Price" %} 
+      <label for="quanty">Product quanty:</label>
+      {% render_field form.name placeholder="Product quanty" class='form-control f ' id="quanty" %} 
+      <label for="image1">Product image:</label>
+      {% render_field form.image1 placeholder="Product image" class='form-control f ' id="image1" %} 
+      <label for="image2">Product image:</label>
+      {% render_field form.image2 placeholder="Product image" class='form-control f ' id="image2" %} 
+      <label for="image3">Product image:</label>
+      {% render_field form.image3 placeholder="Product image" class='form-control f ' id="image3" %} 
+      <label for="image4">Product image:</label>
+      {% render_field form.image4 placeholder="Product image" class='form-control f ' id="image4" %} 
+      <label for="category">Product category:</label>
+      {% render_field form.ctry placeholder="Product category" class='form-control f ' id="category" %} 
+    
+      <label for="size">Product size:</label>
+      {% render_field form.size placeholder="Product size" class='form-control f ' id="size" %} 
+    
+      <input class="btn btn-primary su" type="submit" value="Submit">
+    </form>
+
+   
+</div> 
+<div class="category {{op}}">
+   <!-- Add categories form -->
+    <header >Category Form</header>
+   <form method="post" >
+    {% csrf_token %}
+    <label for="Name">Category Name:</label>
+    {% render_field form.name placeholder="Category Name" class='form-control f ' id="name" %} 
+    <input class="btn btn-primary su" type="submit" value="Submit">
+   </form>
+</div>
+
+
+  <div class="editproduct {{en}}">
+    <header >Edit Product Form</header>
+
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="Name">Product Name:</label>
+      {% render_field form.name placeholder="Product Name" class='form-control f' id="name" %}
+  
+      <label for="Price">Price:</label>
+      {% render_field form.price placeholder="Product Price" class='form-control f' id="price" %}
+  
+      <label for="Details">Product Details:</label>
+      {% render_field form.details placeholder="Product Details" class='form-control f' id="details" %}
+  
+      <label for="Quantity">Quantity:</label>
+      {% render_field form.quantity placeholder="Quantity" class='form-control f' id="quantity" %}
+  
+      <label for="Image1">Primary Image:</label>
+      {% render_field form.image1 class='form-control f' id="image1" %}
+  
+      <label for="Image2">Additional Image 2 (Optional):</label>
+      {% render_field form.image2 class='form-control f' id="image2" %}
+  
+      <label for="Image3">Additional Image 3 (Optional):</label>
+      {% render_field form.image3 class='form-control f' id="image3" %}
+  
+      <label for="Image4">Additional Image 4 (Optional):</label>
+      {% render_field form.image4 class='form-control f' id="image4" %}
+  
+      <label for="Category">Category:</label>
+      {% render_field form.ctry class='form-control f' id="ctry" %}
+      
+      <label for="size">Product size:</label>
+      {% render_field form.size placeholder="Product size" class='form-control f ' id="size" %} 
+      <button type="submit" class="btn btn-primary su">Save Product</button>
+    </form>
+  </div>
+
+
+  
+
+
+</body>
+</html>

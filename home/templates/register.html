@@ -1,0 +1,39 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/reg.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="hed">Winkel</h1>
+        <p class="hed2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, </p>
+        <div class="form-box">
+            <form id="Reg" class="input-group" method="post">
+                {% csrf_token %}
+                <input type="text" class="input-field" name="name" placeholder="Name" required>
+                <input type="email" class="input-field" name="email" placeholder="Email" required>
+                <input type="text" class="input-field" name="phone"placeholder="Phone" required>
+                <input type="password" class="input-field" name="password" placeholder="Password" required>
+                <input type="password" class="input-field"name="cpassword" placeholder="Confirm Password" required>
+
+                <button type="submit" class="submit-btn">Sign Up</button> <br>
+                <p class="hed2">Already have an account? <a href="/login" style="color:rgb(0, 119, 255);text-decoration:none;">Sign In</a></p>
+            </form>
+        </div>
+    </div>
+    <script>
+        const Reg = document.getElementById('Reg');
+        function showReg() {
+            Reg.style.display = "block";
+        }
+        showReg();
+    </script>
+</body>
+</html>
